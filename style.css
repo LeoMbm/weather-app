@@ -7,16 +7,12 @@
 body {
   height: 100vh;
   background: rgb(0, 212, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(0, 212, 255, 1) 0%,
-    rgb(252, 252, 252) 100%
-  );
+  background: linear-gradient(0deg, #1498d5 0%, rgb(252, 252, 252) 100%);
   background-size: cover;
 }
 
 header {
-  width: 70%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,4 +22,39 @@ header {
 .logo img {
   height: 50px;
   width: auto;
+}
+
+form,
+input {
+  margin: 0;
+  height: 3em;
+  padding: 0.5em;
+  border-radius: 4px;
+}
+
+button {
+  height: 3em;
+  width: 3em;
+  padding: 0.5em;
+  border: none;
+  background: #1498d5;
+  cursor: pointer;
+}
+
+i {
+  font-size: 1em;
+  color: #fff;
+}
+
+.big-container {
+  width: 80%;
+  height: 100%;
+  background: #ccc;
+  margin: auto;
+  border-radius: 9px;
+}
+
+.date-container {
+  text-align: center;
+  font-size: 1em;
 }
