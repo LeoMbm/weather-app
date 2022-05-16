@@ -70,7 +70,7 @@ button {
 .day-weather {
   max-height: 40%;
   max-width: 30%;
-  background: #1498d5;
+  /* background: #1498d5; */
   margin: auto;
   margin-top: 1rem;
   border-radius: 9px;
@@ -80,6 +80,8 @@ button {
 .weather-time {
   color: #fff;
   font-size: 1.5rem;
+  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
+    1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
 .top-day {
