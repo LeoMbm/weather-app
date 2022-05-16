@@ -1,16 +1,22 @@
-require("dotenv").config();
+// Variable
 
-const token = process.env.TOKEN;
+const input = document.querySelector("input");
+const button = document.querySelector("button");
 
-async function getWeather() {
+// LISTENER
+
+button.addEventListener("click", getWeather);
+// input.addEventListener("keyup", getWeather);
+
+async function getWeather(e) {
+  e.preventDefault();
   const req = await fetch(
-    "http://api.openweathermap.org/geo/1.0/direct?q=Brussels&limit=5&appid=" +
-      token
+    "http://api.openweathermap.org/data/2.5/forecast?q=" +
+      input.value +
+      "&limit=5&appid=0fe74432f1cac8182f5542fc98fe56e2"
   );
 
   const data = await req.json();
 
   console.log(data);
 }
-
-getWeather();

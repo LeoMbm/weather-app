@@ -30,6 +30,7 @@ input {
   height: 3em;
   padding: 0.5em;
   border-radius: 4px;
+  outline: none;
 }
 
 button {
@@ -41,7 +42,7 @@ button {
   cursor: pointer;
 }
 
-i {
+#search-icon {
   font-size: 1em;
   color: #fff;
 }
@@ -49,12 +50,40 @@ i {
 .big-container {
   width: 80%;
   height: 100%;
-  background: #ccc;
+  background: #f0f0f0;
   margin: auto;
   border-radius: 9px;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #ffffff, #d8d8d8);
+  box-shadow: 20px 20px 5px #cccccc, -20px -20px 5px #ffffff;
 }
 
 .date-container {
   text-align: center;
   font-size: 1em;
+}
+
+.day-weather {
+  min-height: 40%;
+  width: 30%;
+  background: #000;
+  margin: auto;
+}
+
+.weather-time {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.top-day {
+  text-align: center;
+}
+
+.fa-sun {
+  font-size: 4rem;
+  color: hsl(45, 98%, 60%);
+}
+
+ul {
+  list-style: none;
 }

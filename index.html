@@ -11,9 +11,14 @@
     <header>
       <div class="logo"><img src="./assets/logo.png" alt="Logo" /></div>
       <form>
-        <input type="text" name="search" placeholder="Search a City" />
+        <input
+          type="text"
+          name="search"
+          autocomplete="off"
+          placeholder="Search a City"
+        />
         <button type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <i class="fa-solid fa-magnifying-glass" id="search-icons"></i>
         </button>
       </form>
     </header>
@@ -22,6 +27,23 @@
         <div class="date-container">
           <h2>DATE</h2>
         </div>
+        <div class="day-weather">
+          <div class="weather-time">
+            <div class="top-day">
+              <i class="fa-solid fa-sun"></i>
+              <h2>TODAY ITS GOOD</h2>
+            </div>
+            <div class="down-day">
+              <ul>
+                <li>20²</li>
+                <li>10²</li>
+                <li>20²</li>
+                <li>30²</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="forecast-weather"></div>
       </div>
     </main>
     <script src="https://kit.fontawesome.com/97bceb2613.js"></script>
