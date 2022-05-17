@@ -8,10 +8,11 @@ const celsius = document.querySelector("#celsius");
 const iconW = document.querySelector(".top-day");
 const icon = document.querySelector("#icon");
 const card = document.querySelector(".day-weather");
+const background = document.querySelector(".big-container");
 
 const forecastContainer = document.querySelector(".forecast-container");
 const forecastWeather = document.querySelector(".forecast-weather");
-const iconForecast = document.querySelector("#icon-forecast");
+const iconForecast = document.querySelectorAll("#icon-forecast");
 const tempForecast = document.querySelectorAll("#forecast-temp");
 const maxForecast = document.querySelectorAll("#celsius-forecast");
 const topForecast = document.querySelectorAll(".top-forecast");
@@ -38,14 +39,30 @@ async function getWeather(e) {
     "@2x.png";
   celsius.innerHTML =
     Math.round(data["list"][0]["main"]["temp"] - 273.15) + " C°";
-  card.style.backgroundImage =
-    "url('https://source.unsplash.com/280x250/?" + input.value + "')";
-  card.style.backgroundSize = "cover";
+  background.style.backgroundImage =
+    "url('https://source.unsplash.com/850x450/?" + input.value + "')";
+  background.style.backgroundSize = "cover";
+  background.style.backgroundPosition = "center";
 
-  maxForecast.forEach((h2) => {
+  maxForecast.forEach((p) => {
     const deg = (data.list[0].main.temp - 273.15).toFixed(0) + "°";
-    h2.innerHTML = deg;
+    p.innerHTML = deg;
     console.log(deg);
+  });
+
+  iconForecast.forEach((img) => {
+    const linkImg =
+      "https://openweathermap.org/img/wn/" +
+      data["list"][0]["weather"][0]["icon"] +
+      "@2x.png";
+    img.src = linkImg;
+    console.log(linkImg);
+  });
+
+  tempForecast.forEach((h2) => {
+    const time = data["list"][0]["weather"][0]["description"];
+    h2.innerHTML = time;
+    console.log(time);
   });
 
   console.log(data.list);
