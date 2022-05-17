@@ -11,7 +11,7 @@ const card = document.querySelector(".day-weather");
 const background = document.querySelector(".big-container");
 
 const forecastContainer = document.querySelector(".forecast-container");
-const forecastWeather = document.querySelector(".forecast-weather");
+const forecastWeather = document.querySelectorAll(".forecast-weather");
 const iconForecast = document.querySelectorAll("#icon-forecast");
 const tempForecast = document.querySelectorAll("#forecast-temp");
 const maxForecast = document.querySelectorAll("#celsius-forecast");
@@ -65,5 +65,11 @@ async function getWeather(e) {
     console.log(element);
   }
 
+  forecastWeather.forEach((bg) => {
+    bg.style.background = "#1498d5";
+  });
+
   console.log(data.list);
 }
+
+// PAS LE CODE LE PLUS CLEAN SORRY
