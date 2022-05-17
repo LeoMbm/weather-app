@@ -44,26 +44,26 @@ async function getWeather(e) {
   background.style.backgroundSize = "cover";
   background.style.backgroundPosition = "center";
 
-  maxForecast.forEach((p) => {
-    const deg = (data.list[0].main.temp - 273.15).toFixed(0) + "°";
-    p.innerHTML = deg;
-    console.log(deg);
-  });
+  for (let i = 0; i < 5; i++) {
+    const element = (data.list[i].main.temp - 273.15).toFixed(0) + "°";
+    maxForecast[i].innerHTML = element;
+    console.log(element);
+  }
 
-  iconForecast.forEach((img) => {
-    const linkImg =
+  for (let i = 0; i < 5; i++) {
+    const element =
       "https://openweathermap.org/img/wn/" +
-      data["list"][0]["weather"][0]["icon"] +
+      data["list"][i]["weather"][0]["icon"] +
       "@2x.png";
-    img.src = linkImg;
-    console.log(linkImg);
-  });
+    iconForecast[i].src = element;
+    console.log(element);
+  }
 
-  tempForecast.forEach((h2) => {
-    const time = data["list"][0]["weather"][0]["description"];
-    h2.innerHTML = time;
-    console.log(time);
-  });
+  for (let i = 0; i < 5; i++) {
+    const element = data["list"][i]["weather"][0]["description"];
+    tempForecast[i].innerHTML = element;
+    console.log(element);
+  }
 
   console.log(data.list);
 }
