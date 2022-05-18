@@ -18,10 +18,10 @@ const maxForecast = document.querySelectorAll("#celsius-forecast");
 const topForecast = document.querySelectorAll(".top-forecast");
 // LISTENER
 
-button.addEventListener("click", getWeather);
+button.addEventListener("click", getInfoWeather);
 // input.addEventListener("keyup", getWeather);
 
-async function getWeather(e) {
+async function getInfoWeather(e) {
   e.preventDefault();
   const req = await fetch(
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -31,6 +31,14 @@ async function getWeather(e) {
 
   const data = await req.json();
 
+  displayWeather(data);
+
+  displayForecast(data);
+
+  console.log(data.list);
+}
+
+function displayWeather(data) {
   city.innerHTML = data["city"]["name"] + "," + " " + data["city"]["country"];
   weatherNow.innerHTML = data["list"][0]["weather"][0]["description"];
   icon.src =
@@ -43,11 +51,12 @@ async function getWeather(e) {
     "url('https://source.unsplash.com/850x450/?" + input.value + "')";
   background.style.backgroundSize = "cover";
   background.style.backgroundPosition = "center";
+}
 
+function displayForecast(data) {
   for (let i = 0; i < 5; i++) {
     const element = (data.list[i].main.temp - 273.15).toFixed(0) + "°";
     maxForecast[i].innerHTML = element;
-    console.log(element);
   }
 
   for (let i = 0; i < 5; i++) {
@@ -56,20 +65,14 @@ async function getWeather(e) {
       data["list"][i]["weather"][0]["icon"] +
       "@2x.png";
     iconForecast[i].src = element;
-    console.log(element);
   }
 
   for (let i = 0; i < 5; i++) {
     const element = data["list"][i]["weather"][0]["description"];
     tempForecast[i].innerHTML = element;
-    console.log(element);
   }
 
   forecastWeather.forEach((bg) => {
     bg.style.background = "#1498d5";
   });
-
-  console.log(data.list);
 }
-
-// PAS LE CODE LE PLUS CLEAN SORRY
